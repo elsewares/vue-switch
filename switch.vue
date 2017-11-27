@@ -1,7 +1,10 @@
 <template>
 <div :class="className" @click="onClick">
-	<span class="open">{{ openName }}</span>
-	<span class="close">{{ closeName }}</span>
+	<span class="on-label" :style="inlineStyle">{{ onLabel }}</span>
+	<svg class="locked" v-if="locked" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+		<path d="M640 768h512v-192q0-106-75-181t-181-75-181 75-75 181v192zm832 96v576q0 40-28 68t-68 28h-960q-40 0-68-28t-28-68v-576q0-40 28-68t68-28h32v-192q0-184 132-316t316-132 316 132 132 316v192h32q40 0 68 28t28 68z"/>
+	</svg>
+	<span class="off-label">{{ offLabel }}</span>
 </div>
 
 </template>
@@ -10,34 +13,41 @@
 'use strict';
 
 export default {
+  data: {
+    value: props.value
+  },
 	props: {
 		value: {
 			default: true,
 			twoWay: true
 		},
-		// sm小 md中 lg大
+		// One of [sm, md, lg]
 		size: {
 			type: String,
-			default: 'md中'
+			default: 'md'
 		},
 		// blue red green orange
 		color: {
 			type: String,
 			default: 'red'
 		},
-		openValue: {
+		onValue: {
 			default: true
 		},
-		closeValue: {
+		offValue: {
 			default: false
 		},
-		openName: {
+		onLabel: {
 			type: String,
 			default: '是'
 		},
-		closeName: {
+		offLabel: {
 			type: String,
 			default: '否'
+		},
+	  	locked: {
+		  type: Boolean,
+		  default: false
 		},
 		disabled: {
 			type: Boolean,
@@ -45,22 +55,34 @@ export default {
 		}
 	},
 	computed: {
-		className() {
+		className () {
 			let {
 				value,
-				openValue,
-				closeValue,
+				onValue,
+				offValue,
+			  	locked,
 				size,
 				color,
 				disabled
 			} = this;
 			return {
 				'vue-switch': true,
-				'z-on': value === openValue,
+				'z-on': value === onValue,
 				'z-disabled': disabled,
-				['s-' + size]: true,
-				['c-' + color]: true
+			  	'locked': locked === true,
+				['size-' + size]: true,
+				['color-' + color]: true
 			};
+		},
+	  	inlineStyle () {
+		  let styleObj = {};
+
+		  if (this.color.indexOf('#') > -1) {
+		    styleObj.color = this.color;
+		  }
+
+		  return styleObj;
+
 		}
 	},
 	methods: {
@@ -68,14 +90,15 @@ export default {
 			let {
 				disabled,
 				value,
-				openValue,
-				closeValue
+			  	locked,
+				onValue,
+				offValue
 			} = this;
-			if (!disabled) {
-				if (openValue === value) {
-					this.value = closeValue;
+			if (!disabled && !locked) {
+				if (onValue === value) {
+					this.value = offValue;
 				} else {
-					this.value = openValue;
+					this.value = onValue;
 				}
 			}
 		}

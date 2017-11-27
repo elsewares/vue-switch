@@ -8,8 +8,8 @@
   border: 1px solid #d5d5d5;
   background-color: #d5d5d5;
   cursor: pointer;
-  -webkit-transition: all 0.21s ease;
-  transition: all 0.21s ease;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -25,10 +25,17 @@
     font-size: 12px;
     left: 25px;
     color: #222; }
-    .vue-switch span.open {
+    .vue-switch span.switch-on {
       display: none; }
-    .vue-switch span.close {
+    .vue-switch span.switch-off {
       display: inline; }
+  .vue-switch svg.locked {
+    position: relative;
+    top: 2px;
+    left: 5px;
+    width: 16px;
+    height: 16px;
+    fill: white; }
   .vue-switch::after {
     position: absolute;
     content: '';
@@ -43,84 +50,124 @@
     transition: left 0.23s ease, width 0.23s ease, background-color 0.23s ease; }
   .vue-switch:active::after {
     width: 22px; }
-  .vue-switch.z-on {
+  .vue-switch.switch-on {
     background-color: #d33;
     border-color: #d33; }
-    .vue-switch.z-on.c-blue {
+    .vue-switch.switch-on.color-blue {
       background-color: #3091f2;
       border-color: #3091f2; }
-    .vue-switch.z-on.c-orange {
+    .vue-switch.switch-on.color-orange {
       background-color: #f60;
       border-color: #f60; }
-    .vue-switch.z-on.c-green {
+    .vue-switch.switch-on.color-green {
       background-color: #0c6;
       border-color: #0c6; }
-    .vue-switch.z-on span {
+    .vue-switch.switch-on span {
       color: #fff;
       left: 10px; }
-      .vue-switch.z-on span.open {
+      .vue-switch.switch-on span.switch-on {
         display: inline; }
-      .vue-switch.z-on span.close {
+      .vue-switch.switch-on span.switch-off {
         display: none; }
-    .vue-switch.z-on:active::after {
+    .vue-switch.switch-on:active::after {
       left: 25px; }
-    .vue-switch.z-on::after {
+    .vue-switch.switch-on::after {
       left: 29px; }
-  .vue-switch.s-lg {
+  .vue-switch.size-lg {
     width: 60px; }
-    .vue-switch.s-lg.z-on:active::after {
+    .vue-switch.size-lg svg.locked {
+      position: relative;
+      top: 2px;
+      left: 5px;
+      width: 16px;
+      height: 16px;
+      fill: white; }
+    .vue-switch.size-lg.switch-on:active::after {
       left: 37px; }
-    .vue-switch.s-lg.z-on::after {
+    .vue-switch.size-lg.switch-on::after {
       left: 41px; }
-  .vue-switch.s-sm {
+  .vue-switch.size-xl {
+    width: 100px;
+    height: 50px;
+    border-radius: 25px; }
+    .vue-switch.size-xl::after {
+      position: absolute;
+      content: '';
+      width: 40px;
+      height: 40px;
+      border-radius: 40px;
+      background-color: #fff;
+      left: 10px;
+      top: 10px;
+      cursor: pointer;
+      -webkit-transition: left 0.25s ease, width 0.25s ease, background-color 0.25s ease;
+      transition: left 0.25s ease, width 0.25s ease, background-color 0.25s ease; }
+    .vue-switch.size-xl svg.locked {
+      position: relative;
+      top: 12px;
+      left: 12px;
+      width: 25px;
+      height: 25px;
+      fill: white; }
+    .vue-switch.size-xl.switch-on::after {
+      left: 56px;
+      top: 5px; }
+    .vue-switch.size-xl.switch-off::after {
+      left: 5px;
+      top: 5px; }
+  .vue-switch.size-sm {
     width: 36px;
     height: 10px;
     overflow: visible; }
-    .vue-switch.s-sm span {
+    .vue-switch.size-sm span {
       display: none; }
-    .vue-switch.s-sm::after {
+    .vue-switch.size-sm svg.locked {
+      position: relative;
+      top: -4px;
+      left: 4px;
+      width: 12px;
+      height: 12px;
+      fill: white; }
+    .vue-switch.size-sm::after {
       width: 18px;
       height: 18px;
       top: -4px;
       left: -1px;
-      -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.17);
-              box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.17); }
-    .vue-switch.s-sm:active::after {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.17); }
+    .vue-switch.size-sm:active::after {
       width: 21px; }
-    .vue-switch.s-sm.z-disabled {
+    .vue-switch.size-sm.switch-disabled {
       background-color: #e5e5e5;
       border-color: #e5e5e5;
       cursor: not-allowed; }
-      .vue-switch.s-sm.z-disabled::after {
+      .vue-switch.size-sm.switch-disabled::after {
         background-color: #d5d5d5;
-        -webkit-box-shadow: none;
-                box-shadow: none;
+        box-shadow: none;
         cursor: not-allowed; }
-    .vue-switch.s-sm.z-on {
+    .vue-switch.size-sm.switch-on {
       background-color: #fae2e2;
       border-color: #fae2e2; }
-      .vue-switch.s-sm.z-on.c-blue {
+      .vue-switch.size-sm.switch-on.color-blue {
         background-color: #cae3fc;
         border-color: #cae3fc; }
-        .vue-switch.s-sm.z-on.c-blue::after {
+        .vue-switch.size-sm.switch-on.color-blue::after {
           background-color: #3091f2; }
-      .vue-switch.s-sm.z-on.c-orange {
+      .vue-switch.size-sm.switch-on.color-orange {
         background-color: #ffc299;
         border-color: #ffc299; }
-        .vue-switch.s-sm.z-on.c-orange::after {
+        .vue-switch.size-sm.switch-on.color-orange::after {
           background-color: #f60; }
-      .vue-switch.s-sm.z-on.c-green {
+      .vue-switch.size-sm.switch-on.color-green {
         background-color: #b3ffd9;
         border-color: #b3ffd9; }
-        .vue-switch.s-sm.z-on.c-green::after {
+        .vue-switch.size-sm.switch-on.color-green::after {
           background-color: #0c6; }
-      .vue-switch.s-sm.z-on span {
+      .vue-switch.size-sm.switch-on span {
         display: none; }
-      .vue-switch.s-sm.z-on:active::after {
+      .vue-switch.size-sm.switch-on:active::after {
         left: 15px; }
-      .vue-switch.s-sm.z-on::after {
+      .vue-switch.size-sm.switch-on::after {
         left: 19px;
         background-color: #d33; }
-      .vue-switch.s-sm.z-on.z-disabled::after {
-        -webkit-box-shadow: none;
-                box-shadow: none; }
+      .vue-switch.size-sm.switch-on.switch-disabled::after {
+        box-shadow: none; }

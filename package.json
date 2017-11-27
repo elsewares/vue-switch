@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dai-siki/vue-switch.git"
+    "url": "git+https://github.com/elsewares/vue-switch.git"
   },
   "keywords": [
     "vue",
@@ -20,9 +20,9 @@
   "author": "dai-siki",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dai-siki/vue-switch/issues"
+    "url": "https://github.com/elsewares/vue-switch/issues"
   },
-  "homepage": "https://github.com/dai-siki/vue-switch#readme",
+  "homepage": "https://github.com/elsewares/vue-switch#readme",
   "dependencies": {
     "babel-runtime": "^6.11.6",
     "js-effect-ripple": "^1.2.0"

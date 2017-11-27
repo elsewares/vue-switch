@@ -52,13 +52,14 @@ gulp.task('js', function() {
 		}
 	};
 
-	gulp.src('./example/demo.js').pipe($.plumber({errorHandler: _errrHandler})).pipe(named(function() {
+	gulp.src('./example/demo.js').pipe($.plumber({errorHandler: _errorHandler})).pipe(named(function() {
 		return 'demo-src';
 	})).pipe(webpack(webpack_config)).pipe($.uglify()).pipe(gulp.dest('./example'));
 
-	gulp.src('./example-2/demo.js').pipe($.plumber({errorHandler: _errrHandler})).pipe(named(function() {
+	gulp.src('./example-2/demo.js').pipe($.plumber({errorHandler: _errorHandler})).pipe(named(function() {
 		return 'demo-src';
 	})).pipe(webpack(webpack_config)).pipe($.uglify()).pipe(gulp.dest('./example-2'));
+
 });
 
 gulp.task('serve', function() {
@@ -68,12 +69,13 @@ gulp.task('serve', function() {
 	gulp.watch(['./scss/*.scss'], ['css']);
 });
 
+gulp.task('build', ['js', 'css']);
 gulp.task('default', ['serve']);
 
 /** 辅助函数
  -------------------------------------------------------------*/
 //错误提示
-function _errrHandler(e) {
+function _errorHandler(e) {
 	$.util.beep();
 	$.util.log(e);
 }

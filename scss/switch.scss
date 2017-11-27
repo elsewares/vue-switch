@@ -1,14 +1,14 @@
-// 颜色
-$c1: #d33;
-$c2: #3091f2;
-$c3: #f60;
-$c4: #0c6;
+// Colors
+$color-red: #d33;
+$color-blue: #3091f2;
+$color-orange: #f60;
+$color-green: #0c6;
 
-// 尺寸
+// Sizes
 $md: 48px;
 $lg: 60px;
 
-.vue-switch {
+.vue-switch { // default is md - classes below for sm, lg, xl
 	position: relative;
 	display: inline-block;
 	width: 48px;
@@ -18,7 +18,7 @@ $lg: 60px;
 	border: 1px solid #d5d5d5;
 	background-color: #d5d5d5;
 	cursor: pointer;
-	transition: all 0.21s ease;
+	transition: all 0.25s ease;
 	user-select: none;
 	overflow: hidden;
 	-webkit-appearance: none;
@@ -31,13 +31,22 @@ $lg: 60px;
 		left: 25px;
 		color: #222;
 
-		&.open {
+		&.switch-on {
 			display: none;
 		}
 
-		&.close {
+		&.switch-off {
 			display: inline;
 		}
+	}
+
+	svg.locked {
+		position: relative;
+		top: 2px;
+		left: 5px;
+		width: 16px;
+		height: 16px;
+		fill: white;
 	}
 
 	&::after {
@@ -59,34 +68,34 @@ $lg: 60px;
 		}
 	}
 
-	&.z-on {
-		background-color: $c1;
-		border-color: $c1;
+	&.switch-on {
+		background-color: $color-red;
+		border-color: $color-red;
 
-		&.c-blue {
-			background-color: $c2;
-			border-color: $c2;
+		&.color-blue {
+			background-color: $color-blue;
+			border-color: $color-blue;
 		}
 
-		&.c-orange {
-			background-color: $c3;
-			border-color: $c3;
+		&.color-orange {
+			background-color: $color-orange;
+			border-color: $color-orange;
 		}
 
-		&.c-green {
-			background-color: $c4;
-			border-color: $c4;
+		&.color-green {
+			background-color: $color-green;
+			border-color: $color-green;
 		}
 
 		span {
 			color: #fff;
 			left: 10px;
 
-			&.open {
+			&.switch-on {
 				display: inline;
 			}
 
-			&.close {
+			&.switch-off {
 				display: none;
 			}
 		}
@@ -100,12 +109,22 @@ $lg: 60px;
 		&::after {
 			left: 29px;
 		}
+
 	}
 
-	&.s-lg {
+	&.size-lg {
 		width: 60px;
 
-		&.z-on {
+		svg.locked {
+			position: relative;
+			top: 2px;
+			left: 5px;
+			width: 16px;
+			height: 16px;
+			fill: white;
+		}
+
+		&.switch-on {
 			&:active {
 				&::after {
 					left: 37px;
@@ -116,15 +135,68 @@ $lg: 60px;
 				left: 41px;
 			}
 		}
+
 	}
 
-	&.s-sm {
+	&.size-xl {
+		width: 100px;
+		height: 50px;
+		border-radius: 25px;
+
+		&::after {
+			position: absolute;
+			content: '';
+			width: 40px;
+			height: 40px;
+			border-radius: 40px;
+			background-color: #fff;
+			left: 10px;
+			top: 10px;
+			cursor: pointer;
+			transition: left 0.25s ease, width 0.25s ease, background-color 0.25s ease;
+		}
+
+		svg.locked {
+			position: relative;
+			top: 12px;
+			left: 12px;
+			width: 25px;
+			height: 25px;
+			fill: white;
+		}
+
+		&.switch-on {
+			&::after {
+				left: 56px;
+				top: 5px;
+			}
+		}
+
+		&.switch-off {
+			&::after {
+				left: 5px;
+				top: 5px;
+			}
+		}
+
+	}
+
+	&.size-sm {
 		width: 36px;
 		height: 10px;
 		overflow: visible;
 
 		span {
 			display: none;
+		}
+
+		svg.locked {
+			position: relative;
+			top: -4px;
+			left: 4px;
+			width: 12px;
+			height: 12px;
+			fill: white;
 		}
 
 		&::after {
@@ -141,7 +213,7 @@ $lg: 60px;
 			}
 		}
 
-		&.z-disabled {
+		&.switch-disabled {
 			background-color: #e5e5e5;
 			border-color: #e5e5e5;
 			cursor: not-allowed;
@@ -153,34 +225,34 @@ $lg: 60px;
 			}
 		}
 
-		&.z-on {
-			background-color: lighten($c1, 40);
-			border-color: lighten($c1, 40);
+		&.switch-on {
+			background-color: lighten($color-red, 40);
+			border-color: lighten($color-red, 40);
 
-			&.c-blue {
-				background-color: lighten($c2, 32);
-				border-color: lighten($c2, 32);
+			&.color-blue {
+				background-color: lighten($color-blue, 32);
+				border-color: lighten($color-blue, 32);
 
 				&::after {
-					background-color: $c2;
+					background-color: $color-blue;
 				}
 			}
 
-			&.c-orange {
-				background-color: lighten($c3, 30);
-				border-color: lighten($c3, 30);
+			&.color-orange {
+				background-color: lighten($color-orange, 30);
+				border-color: lighten($color-orange, 30);
 
 				&::after {
-					background-color: $c3;
+					background-color: $color-orange;
 				}
 			}
 
-			&.c-green {
-				background-color: lighten($c4, 45);
-				border-color: lighten($c4, 45);
+			&.color-green {
+				background-color: lighten($color-green, 45);
+				border-color: lighten($color-green, 45);
 
 				&::after {
-					background-color: $c4;
+					background-color: $color-green;
 				}
 			}
 
@@ -196,10 +268,10 @@ $lg: 60px;
 
 			&::after {
 				left: 19px;
-				background-color: $c1;
+				background-color: $color-red;
 			}
 
-			&.z-disabled {
+			&.switch-disabled {
 				&::after {
 					box-shadow: none;
 				}
