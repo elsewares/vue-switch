@@ -1,10 +1,10 @@
-# vue-switch
+# vue-switch-elsewares
 
-a beautiful switch component for vue. (vue触发器组件)
+A switch component for Vue 2 based on dai-siki's work.
 
 ## demo
 
-[click me](http://dai-siki.github.io/vue-switch/example/demo.html).
+[click me](http://elsewares.github.io/vue-switch/example/demo.html).
 
 
 ## Env
@@ -17,12 +17,12 @@ vue.js + webpack + es6 + scss
 #### npm
 
 ```shell
-$ npm install vue-switch
+$ npm install vue-switch-elsewares
 ```
 
 ## Usage
 
-#### 相关参数
+#### Attributes
 
 | 名称              | 类型               | 默认             | 说明                                         |
 | ----------------- | ----------------- | ---------------- | --------------------------------------------- |
@@ -35,73 +35,19 @@ $ npm install vue-switch
 | color       | String            | "red"               | red/blue/orange/green                                     |
 | disabled       | Bollean            | false               | as u know                                    |
 
-
-#### 示例(vue@1.0+)
-
-```html
-
-<div id="app">
-	<label for="myDate">Do u love me ?</label>
-	<div class="wrap">
-		<switch size="sm" :value.sync="toggle"></switch>
-	</div>
-	<div class="wrap">
-		<switch size="sm" :value.sync="toggle" color="blue" :disabled="true"></switch>
-	</div>
-	<div class="wrap">
-		<switch size="sm" :value.sync="toggle" color="orange"></switch>
-	</div>
-	<div class="wrap">
-		<switch size="sm" :value.sync="toggle" color="green"></switch>
-	</div>
-	<div class="wrap">
-		<switch :value.sync="toggle"></switch>
-	</div>
-	<div class="wrap">
-		<switch open-name="Yes" close-name="No" color="blue"
-			 :value.sync="toggle"></switch>
-	</div>
-	<div class="wrap">
-		<switch open-name="爱哦" close-name="不爱" size="lg" color="orange"
-			 :value.sync="toggle"></switch>
-	</div>
-	<div class="wrap">
-		<switch open-name="Love" close-name="Hate" size="lg" color="green"
-			 :value.sync="toggle"></switch>
-	</div>
-</div>
-
-<script>
-	import 'babel-polyfill'; //因为使用了es6的一些方法，需要babel垫片，如果你项目中已有相关兼容性方案，可忽略
-	import Vue from 'vue';
-	import mySwitch from 'vue-switch';
-
-	new Vue({
-		el: '#app',
-		data: {
-			toggle: true
-		},
-		components: {
-			'switch': mySwitch
-		}
-	});
-</script>
-
-```
-
-#### 示例(vue@2.0+)
+####  Example (vue@2.0+)
 
 ```html
 
 <div id="app">
-	<label for="myDate">Do u love me ?</label>
+	<label for="myDate">Truthiness?</label>
 	<div class="wrap">
-		<my-switch size="sm" v-model="toggle"></my-switch>
+		<my-switch size="xl" on-label="foo" off-label="bar" on-value="" off-value="" v-model="toggle"></my-switch>
 	</div>
 </div>
 
 <script>
-	import 'babel-polyfill'; //因为使用了es6的一些方法，需要babel垫片，如果你项目中已有相关兼容性方案，可忽略
+	import 'babel-polyfill';
 	import Vue from 'vue';
 	import mySwitch from 'vue-switch/switch-2.vue';
 

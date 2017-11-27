@@ -18,7 +18,7 @@ export default {
   	};
   },
   props: {
-	  // One of [sm, md, lg]
+	  // One of [sm, md, lg, xl]
 	  size: {
 		type: String,
 		default: 'md'

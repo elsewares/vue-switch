@@ -1,14 +1,14 @@
 {
-  "name": "vue-switch",
-  "version": "1.3.0",
-  "description": "a beautiful switch component for vue",
-  "main": "switch.vue",
+  "name": "vue-switch-elsewares",
+  "version": "0.0.1",
+  "description": "A switch component for Vue 2 based on dai-siki's switch.",
+  "main": "switch-2.vue",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elsewares/vue-switch.git"
+    "url": "git+https://github.com/elsewares/vue-switch-elsewares.git"
   },
   "keywords": [
     "vue",
@@ -17,12 +17,12 @@
     "vue-toggle",
     "toggle"
   ],
-  "author": "dai-siki",
-  "license": "ISC",
+  "author": "elsewares",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/elsewares/vue-switch/issues"
+    "url": "https://github.com/elsewares/vue-switch-elsewares/issues"
   },
-  "homepage": "https://github.com/elsewares/vue-switch#readme",
+  "homepage": "https://github.com/elsewares/vue-switch-elsewares#readme",
   "dependencies": {
     "babel-runtime": "^6.11.6",
     "js-effect-ripple": "^1.2.0"

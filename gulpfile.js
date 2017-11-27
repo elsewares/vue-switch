@@ -1,7 +1,5 @@
 /******************************************************
- *             ----前端工程自动化构建----             *
- *                                                    *
- *      @author dai-siki同学 < 851733175@qq.com >     *
+ *      @author elsewares < hi@elsewares.org >        *
  ******************************************************/
 
 // import package
@@ -10,14 +8,13 @@ const $ = require('gulp-load-plugins')(),
 	named = require('vinyl-named'),
 	gulp = require('gulp');
 
-/** 开发
- -------------------------------------------------------------*/
 
+// CSS TASK
 gulp.task('css', function() {
 	gulp.src('./scss/*.scss').pipe($.sass()).pipe($.autoprefixer('last 10 version')).pipe(gulp.dest('./'));
 });
 
-// jS task
+// JS TASK
 gulp.task('js', function() {
 	var webpack_config = {
 		module: {
@@ -62,6 +59,7 @@ gulp.task('js', function() {
 
 });
 
+// DEVELOPMENT SERVE TASK
 gulp.task('serve', function() {
 	gulp.watch([
 		'./example/demo.js', './example-2/demo.js', './*.vue', './scss/*.scss'
@@ -69,12 +67,12 @@ gulp.task('serve', function() {
 	gulp.watch(['./scss/*.scss'], ['css']);
 });
 
+// BUILD TASK
 gulp.task('build', ['js', 'css']);
-gulp.task('default', ['serve']);
+gulp.task('default', ['build']);
 
-/** 辅助函数
- -------------------------------------------------------------*/
-//错误提示
+
+// PRIVATE FUNCTIONS
 function _errorHandler(e) {
 	$.util.beep();
 	$.util.log(e);
